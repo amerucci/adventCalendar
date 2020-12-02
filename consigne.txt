@@ -1,0 +1,24 @@
+Projet : Calendrier de l'avent en javaScript
+
+En cette période de fin d'année je vous demande de réaliser un calendrier de l'avent en javaScript
+Sur une page index.html ne devra se trouver qu'une div "calendar" dans laquelle sera généré votre calendrier.
+Les cases de votre calendrier devront être générées aléatoirement pour éviter que le 2 soit à coté du 1.
+Quand on cliquera sur une case, un champ situé sous la case cliqué sera rempli avec un message représentant le cadeau.
+Voici pour les fonctionnalités de base.
+
+Bonus : 
+
+Un systême de comparaison de date, fera qu'il devra être impossible de cliquer sur la case 5 si nous sommes de 4
+Un systême de cookies qui sauvegardera la répartition des cases ainsi que les cases déjà ouvertes.
+Si vous relancez le projet sur votre navigateur et qu'il a déjà été ouvert alors il sera rechargé tel quel sinon si il ne trouve aucune trace alors il sera chargé.
+
+Il est attendu un rendu en ligne et sur GitHUB
+
+Ce travail se fera individuellement
+
+Du 01/12/2020 au 04/12/2020
+
+
+
+
+ 
