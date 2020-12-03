@@ -40,6 +40,22 @@ body {
     margin-bottom: 0;
 }
 
+.opened{
+        background: rgb(183 28 28 / 0.5);
+}
+
+.dayleft{
+    font-family: 'Bevan', cursive;
+    font-size:30px;
+}
+
+video {
+    width:100%;
+}
+
+.red{
+    color:#b71c1c;
+}
 .box {
     /* background-color: red; */
     position: relative;

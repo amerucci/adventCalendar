@@ -1,27 +1,28 @@
 var AdventCalendar = document.getElementById("calendar");
 var cadeau = document.getElementById("cadeau");
+var currentDate = new Date();
 
 var adventBox = [{
-        title: "La boîte de dialogue alert()",
-        content: "alert() est une instruction simple, appelée fonction, qui permet d'afficher une boîte de dialogue contenant un message. Ce message est placé entre apostrophes, elles-mêmes placées entre les parenthèses de la fonction alert().",
-        img: 'img/1.png'
+    id : 1,
+        title: "Quand on comprend que le commit du stagiaire vient de supprimer toutes les données de prod",
+        content: "<video autoplay='' loop='' muted='' playsinline=''><source src='https://lesjoiesducode.fr/content/018/im5BAc0sgAIou.webm' type='video/webm'><source src='https://lesjoiesducode.fr/content/018/im5BAc0sgAIou.mp4' type='video/mp4'><object data='https://lesjoiesducode.fr/content/018/im5BAc0sgAIou.gif' type='image/gif'></object></video>",
+      
     },
     {
-        title: "La syntaxe Javascript",
-        content: "La syntaxe du Javascript n'est pas compliquée. De manière générale, les instructions doivent être séparées par un point-virgule que l'on place à la fin de chaque instruction:<br/> <code> &lt;script&gt<br/>instruction_1;<br/>instruction_2;<br/>instruction_3;<br/> &lt;/script&gt</code>",
-        img: 'img/2.png'
+        id : 2, 
+        title: "Quand il y a une erreur ligne 237 mais que j’ai écrit que 45 lignes de code",
+        content: '<video autoplay="" loop="" muted="" playsinline=""><source src="https://lesjoiesducode.fr/content/041/yGonyiy.webm" type="video/webm"><source src="https://lesjoiesducode.fr/content/041/yGonyiy.mp4" type="video/mp4"><object data="https://lesjoiesducode.fr/content/041/yGonyiy.gif" type="image/gif"></object></video>',
+       
     },
     {
         id: 3,
-        title: "3",
-        content: '<iframe height="265" style="width: 100%;" scrolling="no" title="eYdpRWZ" src="https://codepen.io/amerucci/embed/eYdpRWZ?height=265&theme-id=light&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href="https://codepen.io/amerucci/pen/eYdpRWZ">eYdpRWZ</a> by Alain Merucci (<a href="https://codepen.io/amerucci">@amerucci</a>) on <a href="https://codepen.io">CodePen</a>.</iframe>"',
-        img: 'img/3.png'
+        title: "Quand j’ouvre ma boîte mail après 2 semaines de vacances",
+        content: '<video autoplay="" loop="" muted="" playsinline=""><source src="https://lesjoiesducode.fr/content/030/uLhzDfg.webm" type="video/webm"><source src="https://lesjoiesducode.fr/content/030/uLhzDfg.mp4" type="video/mp4"><object data="https://lesjoiesducode.fr/content/030/uLhzDfg.gif" type="image/gif"></object></video>'
     },
     {
         id: 4,
-        title: "",
-        content: '',
-        img: 'img/4.png'
+        title: "Quand on m’annonce qu’un projet doit être compatible ie6",
+        content: '<video autoplay="" loop="" muted="" playsinline=""><source src="https://lesjoiesducode.fr/content/012/cQEBX.webm" type="video/webm"><source src="https://lesjoiesducode.fr/content/012/cQEBX.mp4" type="video/mp4"><object data="https://lesjoiesducode.fr/content/012/cQEBX.gif" type="image/gif"></object></video>'
     },
     {
         id: 5,
@@ -192,9 +193,8 @@ function Modal() {
     }
 }
 
-
 //Je génère un objet Case
-function Box(AdventCalendar, day) {
+function Box2(AdventCalendar, day) {
 
     this.content = function () {
         //Génération des cases
@@ -235,21 +235,133 @@ function Box(AdventCalendar, day) {
     }
 }
 
+
+//Je génère un objet Case
+function Box(AdventCalendar, day) {
+
+    this.content = function () {
+        //Génération des cases
+        var box = document.createElement("div");
+        AdventCalendar.appendChild(box);
+        box.id = "box" + day;
+        var dayNumber = document.createElement("div");
+        box.append(dayNumber);
+        dayNumber.classList = "daynumber";
+        var boxSaved = localStorage.getItem(box.id);
+        dayNumber.innerHTML = day;
+        if (boxSaved != null) {
+            box.classList = "col-4 col-md-6 col-lg-2 justify-content-center box opened";
+        } else {
+            box.classList = "col-4 col-md-6 col-lg-2 justify-content-center box";
+        }
+
+
+
+        box.onclick = function () {
+            var modal = document.getElementById("exampleModalLive");
+            var span = document.getElementsByClassName("close")[0];
+            var modalContent = document.getElementById("modalContent");
+            var titre = document.getElementById("titre");
+
+
+
+
+            modal.classList.toggle("show");
+            modal.style.zIndex = "1";
+
+
+
+            span.onclick = function () {
+
+                modal.classList.toggle("show");
+                modal.style.zIndex = "-1";
+                if ((currentDate.getMonth() + 1) < 12 || currentDate.getDate() < day) {
+                    box.classList = "col-4 col-md-6 col-lg-2 justify-content-center box";
+                } else {
+                    localStorage.setItem(box.id, "open");
+                    box.classList = "col-4 col-md-6 col-lg-2 justify-content-center box opened";
+                }
+
+            }
+
+
+            if ((currentDate.getMonth() + 1) < 12 || currentDate.getDate() < day) {
+                let dayslef = day - currentDate.getDate();
+                    if(dayslef==1){
+                        modalContent.innerHTML = "<p class='text-center m-0 dayleft'>Revenez demain</p>"
+                    }
+                    else{
+                        modalContent.innerHTML = "<p class='text-center m-0 dayleft'>Revenez dans <span class='red'>"+dayslef+" jours</span></p>"
+                    }
+            }
+            else{
+                modalContent.innerHTML = adventBox[day - 1].content; 
+            }
+
+
+
+            if ((currentDate.getMonth() + 1) < 12 || currentDate.getDate() < day) {
+                titre.innerHTML = "";
+
+            }
+            else{
+                titre.innerHTML = "Jour " + day + " - " + adventBox[day - 1].title;
+
+            }
+
+            
+            
+           
+        }
+
+    }
+}
+
 //Je crée une fonction qui va générer des cases autant de fois que souhaité
 function generate() {
     logo = new Logo();
     logo.content();
+    var savedArray = localStorage.getItem('array');
+    console.log(savedArray)
 
-    var box = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-    var i = box.length
-    while (i != 1) {
-        i--
-        let randomNumber = Math.floor(Math.random() * i)
-        box[i] = new Box(AdventCalendar, box[randomNumber]);
-        box[i].content();
-        box.splice(randomNumber, 1);
-        // console.log(box)
+    if (savedArray == null) {
+        var box = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        var newBox = []
+
+        var i = box.length
+        while (i != 1) {
+            i--
+            let randomNumber = Math.floor(Math.random() * i)
+            box[i] = new Box(AdventCalendar, box[randomNumber]);
+            box[i].content();
+            newBox.splice(0, 0, box[randomNumber]);
+
+            box.splice(randomNumber, 1);
+
+
+        }
+        newBox.reverse();
+        localStorage.setItem("array", JSON.stringify(newBox));
+
+    } else {
+
+        boxArray = localStorage.getItem('array')
+        newBox = JSON.parse(boxArray);
+
+
+        for (var d = 0; d < 24; d++) {
+            day = newBox[d];
+            console.log(day);
+            newBox[d] = new Box(AdventCalendar, day);
+            newBox[d].content();
+
+        }
+
     }
+
+
+
+
     modal = new Modal();
     modal.content();
     //Enregistrement des données dans le local storage
