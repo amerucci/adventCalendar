@@ -45,6 +45,7 @@ body {
     position: relative;
     width: 100%;
     border: 1px dashed #fff;
+    cursor:pointer;
 
 }
 
