@@ -2,127 +2,165 @@ var AdventCalendar = document.getElementById("calendar");
 var cadeau = document.getElementById("cadeau");
 
 var adventBox = [{
-        id: 1,
-        jour: 'Si on faisait le coup du bouclier humain ?[...] Par exemple, Sire, Léodagan et moi on fait semblant de vous prendre en otage : on vous met une dague sous le cou et on traverse le camp adverse en gueulant : " Bougez pas, bougez pas ou on bute le roi!"...',
-        img: 'img/gift-box.png'
+        title: "La boîte de dialogue alert()",
+        content: "alert() est une instruction simple, appelée fonction, qui permet d'afficher une boîte de dialogue contenant un message. Ce message est placé entre apostrophes, elles-mêmes placées entre les parenthèses de la fonction alert().",
+        img: 'img/1.png'
     },
     {
-        id: 2,
-        jour: 'Putain, en plein dans sa mouille !',
-        img: 'img/gift-box.png'
+        title: "La syntaxe Javascript",
+        content: "La syntaxe du Javascript n'est pas compliquée. De manière générale, les instructions doivent être séparées par un point-virgule que l'on place à la fin de chaque instruction:<br/> <code> &lt;script&gt<br/>instruction_1;<br/>instruction_2;<br/>instruction_3;<br/> &lt;/script&gt</code>",
+        img: 'img/2.png'
     },
     {
         id: 3,
-        jour: "3",
-        img: 'img/gift-box.png'
+        title: "3",
+        content: '<iframe height="265" style="width: 100%;" scrolling="no" title="eYdpRWZ" src="https://codepen.io/amerucci/embed/eYdpRWZ?height=265&theme-id=light&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href="https://codepen.io/amerucci/pen/eYdpRWZ">eYdpRWZ</a> by Alain Merucci (<a href="https://codepen.io/amerucci">@amerucci</a>) on <a href="https://codepen.io">CodePen</a>.</iframe>"',
+        img: 'img/3.png'
     },
     {
         id: 4,
-        jour: "4",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/4.png'
     },
     {
         id: 5,
-        jour: "5",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/5.png'
     },
     {
         id: 6,
-        jour: "6",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/6.png'
     },
     {
         id: 7,
-        jour: "7",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/7.png'
     },
     {
         id: 8,
-        jour: "8",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/8.png'
     },
     {
         id: 9,
-        jour: "9",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/9.png'
     },
     {
         id: 10,
-        jour: "10",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 11,
-        jour: "11",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/11.png'
     },
     {
         id: 12,
-        jour: "12",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/12.png'
     },
     {
         id: 13,
-        jour: "13",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/13.png'
     },
     {
         id: 14,
-        jour: "14",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/14.png'
     },
     {
         id: 15,
-        jour: "15",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/15.png'
     },
     {
         id: 16,
-        jour: "16",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 17,
-        jour: "17",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 18,
-        jour: "18",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 19,
-        jour: "19",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 20,
-        jour: "20",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 21,
-        jour: "21",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 22,
-        jour: "22",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 23,
-        jour: "23",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
     {
         id: 24,
-        jour: "24",
-        img: 'img/gift-box.png'
+        title: "",
+        content: '',
+        img: 'img/10.png'
     },
 
 ];
+
+function Logo() {
+    this.content = function () {
+        var logo = document.createElement("div");
+        AdventCalendar.append(logo);
+        logo.id = 'logo';
+        logo.classList = 'col-12 col-md-6 col-lg-6 justify-content-center door-container-title-inner';
+        var logoh1 = document.createElement("h1");
+        logo.append(logoh1);
+        logoh1.innerHTML = 'Advent Calendar';
+        var logopara = document.createElement("p");
+        logo.append(logopara);
+        logopara.classList = 'text-right';
+        logopara.innerHTML = 'We wish you a merry Christmas';
+    }
+}
 
 //Génération de la Modal
 function Modal() {
@@ -130,8 +168,10 @@ function Modal() {
         //Génération de la modal
         var modal = document.createElement("div");
         AdventCalendar.append(modal);
-        modal.id = "myModal";
-        modal.classList = "modal";
+        modal.id = "exampleModalLive";
+        modal.classList = "modal faded";
+        modal.style.display = "block";
+        modal.style.zIndex = "-1";
         //Génération de la modal content
         var modalContent = document.createElement("div");
         modal.append(modalContent);
@@ -161,36 +201,34 @@ function Box(AdventCalendar, day) {
         var box = document.createElement("div");
         AdventCalendar.appendChild(box);
         box.id = "box" + day;
-        box.innerHTML = day;
-        box.classList = "col-12 col-md-6 col-lg-2 justify-content-center";
-
-
-
-
+        var dayNumber = document.createElement("div");
+        box.append(dayNumber);
+        dayNumber.classList = "daynumber";
+        dayNumber.innerHTML = day;
+        box.classList = "col-4 col-md-6 col-lg-2 justify-content-center box";
 
         box.onclick = function () {
-            // cadeau.innerHTML = "voici le cadeau du jour " + day
-            // return false;
-
-            var modal = document.getElementById("myModal");
+            var modal = document.getElementById("exampleModalLive");
             var span = document.getElementsByClassName("close")[0];
             var modalContent = document.getElementById("modalContent");
             var titre = document.getElementById("titre");
 
-            modal.style.display = "block";
 
-            modal.onclick = function () {
-                modal.style.display = "none";
 
-            }
+            modal.classList.toggle("show");
+            modal.style.zIndex = "1";
+
+
 
             span.onclick = function () {
-                modal.style.display = "none";
+
+                modal.classList.toggle("show");
+                modal.style.zIndex = "-1";
 
             }
 
-            modalContent.innerHTML = adventBox[day - 1].jour;
-            titre.innerHTML = "Jour "+day;
+            modalContent.innerHTML = adventBox[day - 1].content;
+            titre.innerHTML = "Jour " + day + " - " + adventBox[day - 1].title;
 
         }
 
@@ -199,6 +237,9 @@ function Box(AdventCalendar, day) {
 
 //Je crée une fonction qui va générer des cases autant de fois que souhaité
 function generate() {
+    logo = new Logo();
+    logo.content();
+
     var box = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
     var i = box.length
     while (i != 1) {
@@ -211,7 +252,7 @@ function generate() {
     }
     modal = new Modal();
     modal.content();
-
+    //Enregistrement des données dans le local storage
 };
 
 generate();
